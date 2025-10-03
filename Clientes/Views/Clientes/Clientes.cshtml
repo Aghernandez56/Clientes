@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Clientes.ViewModels.ClienteVM>
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center text-primary mb-4">
+        <i class="bi bi-people-fill"></i> Nuestros Clientes
+    </h2>
+
+    <table class="table table-bordered table-striped table-hover shadow-sm rounded">
+        <thead class="table-primary text-center">
+            <tr>
+                <th><i class="bi bi-person-badge"></i> ID</th>
+                <th><i class="bi bi-person"></i> Nombre</th>
+                <th><i class="bi bi-telephone"></i> Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cliente in Model)
+            {
+                <tr>
+                    <td class="text-center">@cliente.Id</td>
+                    <td>@cliente.Nombre @cliente.ApellidoPaterno @cliente.ApellidoMaterno</td>
+                    <td class="text-center">@cliente.Telefono</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Botón de regreso -->
+    <div class="text-center mt-4">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary px-4 shadow-sm">
+            <i class="bi bi-arrow-left-circle"></i> Regresar al Inicio
+        </a>
+    </div>
+</div>
